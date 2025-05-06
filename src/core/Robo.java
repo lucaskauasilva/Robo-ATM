@@ -2,19 +2,24 @@ package core;
 
 /**
  * @author Jesimar da Silva Arantes
- * @Aluno Lucas Kauã Silva
+ * @aluno Lucas Kauã Silva
  */
 public class Robo {
-    float posicaoX = 50;
-    float posicaoY = 50;
-    
+    float posicaoX;
+    float posicaoY;
+	int orientacao;
     final String nome;
     final float peso;
     final float velocidadeMax = 5;
     final float pesoCargaMax = 20;
     final String tipoTracao = "esteira";
+
+	static final int FRENTE = 0;
+	static final int ATRAS = 1;
+	static final int ESQUERDA = 2;
+	static final int DIREITA = 3;
     
-    public Robo(){ 
+    public Robo() { 
     	this.nome = "R-ATM";
     	this.peso = 70;
     	this.posicaoX = 50;
@@ -42,13 +47,33 @@ public class Robo {
     	this.posicaoY = posY;
     }
 
-    public void move(float pos) {
+    public void move(float pos){
     	this.posicaoY = pos;
     }
     
-    public void move(float x, float y){
-        this.posicaoX = x;
-        this.posicaoY = y;
+    public void move(float posX, float posY){
+        this.posicaoX = posX;
+        this.posicaoY = posY;
+    }
+    
+    public void moveX(float dist){
+    	this.posicaoX += dist;
+    }
+    
+    public void moveY(float dist){
+    	this.posicaoY += dist;
+    }
+    
+    public void setOrientacao(char tecla){
+    	if (tecla == 'w') {
+    		this.orientacao = FRENTE;
+    	}else if (tecla == 's') {
+    		this.orientacao = ATRAS;
+    	}else if (tecla == 'a') {
+    		this.orientacao = ESQUERDA;
+    	}else if (tecla == 'd') {
+    		this.orientacao = DIREITA;
+    	}
     }
     
     public void printStatus(){
@@ -63,5 +88,7 @@ public class Robo {
         System.out.println("-------------------------------");
     }
     
-
+    public void printPos() {
+    	System.out.println("(x, y) = (" + posicaoX + ", " + posicaoY + ")");
+    }
 }
