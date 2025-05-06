@@ -5,17 +5,50 @@ package core;
  * @Aluno Lucas Kauã Silva
  */
 public class Robo {
-    String nome = "R-ATM";
-    float peso = 70;
-    float velocidadeMax = 5;
-    float pesoCargaMax = 20;
-    String tipoTracao = "esteira";
     float posicaoX = 50;
     float posicaoY = 50;
     
+    final String nome;
+    final float peso;
+    final float velocidadeMax = 5;
+    final float pesoCargaMax = 20;
+    final String tipoTracao = "esteira";
+    
+    public Robo(){ 
+    	this.nome = "R-ATM";
+    	this.peso = 70;
+    	this.posicaoX = 50;
+    	this.posicaoY = 50;
+    }
+    
+    public Robo(String nome) {
+    	this.nome = nome;
+    	this.peso = 70;
+    	this.posicaoX = 50;
+    	this.posicaoY = 50;
+    }
+    
+    public Robo(String nome, float peso) {
+    	this.nome = nome;
+    	this.peso = peso;
+    	this.posicaoX = 50;
+    	this.posicaoY = 50;
+    }
+    
+    public Robo(String nome, float peso, float posX, float posY) {
+    	this.nome = nome;
+    	this.peso = peso;
+    	this.posicaoX = posX;
+    	this.posicaoY = posY;
+    }
+
+    public void move(float pos) {
+    	this.posicaoY = pos;
+    }
+    
     public void move(float x, float y){
-        posicaoX = x;
-        posicaoY = y;
+        this.posicaoX = x;
+        this.posicaoY = y;
     }
     
     public void printStatus(){
@@ -30,12 +63,5 @@ public class Robo {
         System.out.println("-------------------------------");
     }
     
-    public static void main(String[] args) {
-        Robo objRobo = new Robo();
-        objRobo.printStatus();
-        objRobo.move(60, 50);
-        objRobo.printStatus();
-        objRobo.move(65, 55);
-        objRobo.printStatus();
-    }
+
 }
