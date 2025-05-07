@@ -1,18 +1,18 @@
-package core;
+package simulator.core;
 
 /**
  * @author Jesimar da Silva Arantes
  * @aluno Lucas Kauã Silva
  */
 public class Robo {
-    float posicaoX;
-    float posicaoY;
-	int orientacao;
-    final String nome;
-    final float peso;
-    final float velocidadeMax = 5;
-    final float pesoCargaMax = 20;
-    final String tipoTracao = "esteira";
+    private float posicaoX;
+    private float posicaoY;
+    private int orientacao;
+    private final String nome;
+    private final float peso;
+    private final float velocidadeMax = 5;
+    private final float pesoCargaMax = 20;
+    private final String tipoTracao = "esteira";
 
 	static final int FRENTE = 0;
 	static final int ATRAS = 1;
@@ -91,4 +91,30 @@ public class Robo {
     public void printPos() {
     	System.out.println("(x, y) = (" + posicaoX + ", " + posicaoY + ")");
     }
+    
+	public float getPosicaoX() {
+		return posicaoX;
+	}
+
+	public float getPosicaoY() {
+		return posicaoY;
+	}
+
+	public int getOrientacao() {
+		return orientacao;
+	}
+	
+	@Override
+	public String toString() {
+		      return "Robo{" + "posição-X = " + posicaoX + ", posição-Y = " + posicaoY + "Orientação = " + orientacao + '}';
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Robo) {
+			Robo robo = (Robo) obj;
+			return this.nome.equals(robo.nome);
+		} else {
+			return false;
+		}
+	}
 }

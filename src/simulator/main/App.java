@@ -1,4 +1,7 @@
-package core;
+package simulator.main;
+
+import simulator.core.Robo;
+import simulator.core.Caixa;
 
 /**
  * @author Jesimar S. Arantes
@@ -27,5 +30,8 @@ public class App {
     		}
     	}
     	robo.printPos();
+        Caixa caixa1 = new Caixa("Caixa de Livros",     15, 20, 20, 30, 0.40f, 0.40f, 0.30f);
+        Caixa caixa2 = new Caixa("Caixa de HDs",        25, 30, 20, 40, 0.50f, 0.50f, 0.30f);
+        Caixa caixa3 = new Caixa("Caixa de Impressoras", 3, 20, 20, 40, 0.60f, 0.60f, 0.40f);
     }
 }
