@@ -14,10 +14,10 @@ public class Robo {
     private final float pesoCargaMax = 20;
     private final String tipoTracao = "esteira";
 
-	static final int FRENTE = 0;
-	static final int ATRAS = 1;
-	static final int ESQUERDA = 2;
-	static final int DIREITA = 3;
+	public static final int FRENTE = 0;
+	public static final int ATRAS = 1;
+	public static final int ESQUERDA = 2;
+	public static final int DIREITA = 3;
     
     public Robo() { 
     	this.nome = "R-ATM";

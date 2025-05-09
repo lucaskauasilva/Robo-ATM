@@ -5,8 +5,8 @@ package simulator.core;
  * @aluno Lucas Kauã Silva
  */
 public class Caixa extends CaixaIdeia{
-	String nomeItem;
-	int qtdItem;
+	public String nomeItem;
+	public int qtdItem;
 	public Caixa(String nomeItem, int qtdItem, int posX, int posY, float peso, float comprimento, float largura, float altura) {
 		super(posX, posY, peso, comprimento, largura, altura);
 		this.nomeItem = nomeItem;
@@ -15,6 +15,6 @@ public class Caixa extends CaixaIdeia{
 	
 	@Override
 	public String toString() {
-		return "Caixa{ " + "Nome do Item = " + nomeItem + "Quantidade do Item: " + qtdItem + '}';
+		return "Caixa{" + "Nome do Item = " + nomeItem + ", Quantidade do Item: " + qtdItem + '}';
 	}
 }
