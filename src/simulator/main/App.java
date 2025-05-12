@@ -15,6 +15,7 @@ public class App {
     	boolean ok = false;
     	do {
     		try{
+    			System.out.println("Digite uma tecla: "); //@Lks
     			tecla = scan.next();
     			robo.setOrientacao(tecla.charAt(0));
     			robo.printPos();

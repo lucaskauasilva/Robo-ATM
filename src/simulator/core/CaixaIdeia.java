@@ -4,7 +4,7 @@ package simulator.core;
  * @author Josimar S. Arantes
  * @aluno Lucas Kauã Silva
  */
-public class CaixaIdeia {
+public abstract class CaixaIdeia {
 	protected int posX;
 	protected int posY;
 	protected float peso;

@@ -4,12 +4,8 @@ package simulator.core;
  * @author Jesimar da Silva Arantes
  * @aluno Lucas Kauã Silva
  */
-public class Robo {
-    private float posicaoX;
-    private float posicaoY;
-    private int orientacao;
-    private final String nome;
-    private final float peso;
+public class Robo extends RoboIdeia{
+
     private final float velocidadeMax = 5;
     private final float pesoCargaMax = 20;
     private final String tipoTracao = "esteira";
@@ -46,33 +42,47 @@ public class Robo {
     	this.posicaoX = posX;
     	this.posicaoY = posY;
     }
-
-    public void move(float pos){
-    	this.posicaoY = pos;
-    }
-    
+    @Override
     public void move(float posX, float posY){
-        this.posicaoX = posX;
-        this.posicaoY = posY;
+    	if (Float.isNaN(posX) || Float.isNaN(posY) ||
+        	Float.isInfinite(posX) || Float.isFinite(posY)){
+    		throw new IllegalArgumentException("Argumentos não válidos. ");
+    	}
+        super.posicaoX = posX;
+        super.posicaoY = posY;
     }
     
+    @Override
     public void moveX(float dist){
-    	this.posicaoX += dist;
+    	if (Float.isNaN(dist) || Float.isFinite(dist)) {
+    		throw new IllegalArgumentException("Argumento não válido. ");
+    	}
+    	super.posicaoX += dist;
     }
     
+    @Override
     public void moveY(float dist){
-    	this.posicaoY += dist;
+    	if (Float.isNaN(dist) || Float.isFinite(dist)) {
+    		throw new IllegalArgumentException("Argumento não válido. ");
+    	}
+    	super.posicaoY += dist;
     }
     
     public void setOrientacao(char tecla){
     	if (tecla == 'w') {
     		this.orientacao = FRENTE;
-    	}else if (tecla == 's') {
+    		moveY(5);
+    	} else if (tecla == 's') {
     		this.orientacao = ATRAS;
-    	}else if (tecla == 'a') {
+    		moveY(-5);
+    	} else if (tecla == 'a') {
     		this.orientacao = ESQUERDA;
-    	}else if (tecla == 'd') {
+    		moveX(5);
+    	} else if (tecla == 'd') {
     		this.orientacao = DIREITA;
+    		moveX(-5);
+    	} else {
+    		throw new IllegalArgumentException("Argumento não válido");
     	}
     }
     
